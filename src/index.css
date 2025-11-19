@@ -72,7 +72,7 @@ All colors MUST be HSL.
     --popover: 220 13% 10%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 199 89% 48%;
+    --primary: 199 89% 58%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -81,15 +81,19 @@ All colors MUST be HSL.
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 199 89% 48%;
+    --accent: 199 89% 58%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 199 89% 48%;
+    --border: 217.2 32.6% 20%;
+    --input: 217.2 32.6% 20%;
+    --ring: 199 89% 58%;
+    
+    --cyber-blue: 199 89% 58%;
+    --cyber-blue-light: 199 89% 70%;
+    --cyber-glow: 199 89% 58%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -104,6 +108,9 @@ All colors MUST be HSL.
 @layer base {
   * {
     @apply border-border;
+    transition-property: background-color, border-color, color;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
   }
 
   body {
@@ -113,6 +120,11 @@ All colors MUST be HSL.
   
   html {
     scroll-behavior: smooth;
+  }
+  
+  /* Prevent transition on page load */
+  html.loading * {
+    transition: none !important;
   }
 }
 
