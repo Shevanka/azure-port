@@ -42,13 +42,18 @@ const About = () => {
             {highlights.map((item, index) => (
               <div
                 key={index}
-                className="group p-6 rounded-lg bg-card border border-border/50 hover:border-primary/50 transition-all duration-300 hover:glow-effect hover:scale-105"
+                className="group p-6 rounded-lg bg-card border border-border/50 hover:border-primary/50 transition-all duration-500 hover:glow-effect hover:scale-105 hover:-translate-y-2 relative overflow-hidden"
               >
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <item.icon className="w-6 h-6 text-primary" />
+                {/* Animated background on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
+                    <item.icon className="w-6 h-6 text-primary group-hover:animate-pulse" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors duration-300">{item.title}</h3>
+                  <p className="text-muted-foreground">{item.description}</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-foreground">{item.title}</h3>
-                <p className="text-muted-foreground">{item.description}</p>
               </div>
             ))}
           </div>

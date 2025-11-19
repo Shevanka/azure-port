@@ -65,11 +65,14 @@ const Skills = () => {
                           {skill.level}%
                         </span>
                       </div>
-                      <div className="h-2 bg-muted rounded-full overflow-hidden">
+                      <div className="h-2 bg-muted rounded-full overflow-hidden relative">
                         <div
-                          className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-500 group-hover:glow-effect"
+                          className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-500 group-hover:glow-effect relative"
                           style={{ width: `${skill.level}%` }}
-                        />
+                        >
+                          {/* Shimmer effect */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                        </div>
                       </div>
                     </div>
                   ))}
