@@ -3,8 +3,11 @@ import { Download, Mail } from "lucide-react";
 import ParticleBackground from "@/components/ParticleBackground";
 import FloatingElements from "@/components/FloatingElements";
 import AnimatedGradient from "@/components/AnimatedGradient";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section
       id="hero"
@@ -33,14 +36,13 @@ const Hero = () => {
 
           {/* Heading */}
           <h1 className="text-5xl md:text-7xl font-bold mb-4 text-foreground animate-slide-up">
-            Hello, Saya{" "}
-            <span className="text-primary glow-text">Developer</span>
+            {t.hero.greeting}{" "}
+            <span className="text-primary glow-text">{t.hero.role}</span>
           </h1>
 
           {/* Subheading */}
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl animate-slide-up delay-100">
-            Creative Full-Stack Developer yang berfokus pada pembuatan website modern
-            dan aplikasi web yang inovatif
+            {t.hero.description}
           </p>
 
           {/* CTA Buttons */}
@@ -52,7 +54,7 @@ const Hero = () => {
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
               <Mail className="mr-2 h-5 w-5" />
-              Contact Me
+              {t.hero.contactMe}
             </Button>
             <Button
               size="lg"
@@ -61,7 +63,7 @@ const Hero = () => {
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
               <Download className="mr-2 h-5 w-5" />
-              Download CV
+              {t.hero.downloadCV}
             </Button>
           </div>
         </div>

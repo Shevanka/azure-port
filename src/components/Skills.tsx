@@ -1,9 +1,12 @@
 import { Badge } from "@/components/ui/badge";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Skills = () => {
+  const { t } = useLanguage();
+
   const skillCategories = [
     {
-      category: "Frontend",
+      category: t.skills.frontend,
       skills: [
         { name: "React", level: 90 },
         { name: "TypeScript", level: 85 },
@@ -12,7 +15,7 @@ const Skills = () => {
       ],
     },
     {
-      category: "Backend",
+      category: t.skills.backend,
       skills: [
         { name: "Node.js", level: 85 },
         { name: "Express", level: 80 },
@@ -21,7 +24,7 @@ const Skills = () => {
       ],
     },
     {
-      category: "Tools & Others",
+      category: t.skills.tools,
       skills: [
         { name: "Git", level: 90 },
         { name: "Docker", level: 70 },
@@ -36,7 +39,7 @@ const Skills = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">
-            Keahlian <span className="text-primary glow-text">Saya</span>
+            {t.skills.title} <span className="text-primary glow-text">{t.skills.subtitle}</span>
           </h2>
           
           {/* Glowing Line */}

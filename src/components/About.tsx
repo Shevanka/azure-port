@@ -1,21 +1,24 @@
 import { Code2, Palette, Rocket } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const About = () => {
+  const { t } = useLanguage();
+
   const highlights = [
     {
       icon: Code2,
-      title: "Clean Code",
-      description: "Menulis kode yang bersih dan maintainable",
+      title: t.about.cleanCode,
+      description: t.about.cleanCodeDesc,
     },
     {
       icon: Palette,
-      title: "Modern Design",
-      description: "Menciptakan desain yang indah dan fungsional",
+      title: t.about.modernDesign,
+      description: t.about.modernDesignDesc,
     },
     {
       icon: Rocket,
-      title: "Fast Performance",
-      description: "Optimasi untuk performa maksimal",
+      title: t.about.fastPerformance,
+      description: t.about.fastPerformanceDesc,
     },
   ];
 
@@ -24,17 +27,14 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">
-            Tentang <span className="text-primary glow-text">Saya</span>
+            {t.about.title} <span className="text-primary glow-text">{t.about.subtitle}</span>
           </h2>
           
           {/* Glowing Line */}
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-12 rounded-full glow-effect" />
 
           <p className="text-lg text-muted-foreground text-center mb-12 leading-relaxed">
-            Saya adalah seorang developer yang passionate dalam menciptakan pengalaman digital
-            yang menarik dan inovatif. Dengan fokus pada teknologi web modern, saya mengombinasikan
-            kreativitas desain dengan keahlian teknis untuk menghadirkan solusi yang tidak hanya
-            fungsional, tetapi juga estetis.
+            {t.about.description}
           </p>
 
           {/* Highlights Grid */}
