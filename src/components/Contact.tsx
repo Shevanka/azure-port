@@ -4,9 +4,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Contact = () => {
   const { toast } = useToast();
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,8 +18,8 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Pesan Terkirim!",
-      description: "Terima kasih, saya akan segera menghubungi Anda.",
+      title: t.contact.successTitle,
+      description: t.contact.successMessage,
     });
     setFormData({ name: "", email: "", message: "" });
   };
@@ -34,7 +36,7 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">
-            Hubungi <span className="text-primary glow-text">Saya</span>
+            {t.contact.title} <span className="text-primary glow-text">{t.contact.subtitle}</span>
           </h2>
           
           {/* Glowing Line */}
@@ -46,7 +48,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Input
-                    placeholder="Nama Anda"
+                    placeholder={t.contact.namePlaceholder}
                     value={formData.name}
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
@@ -58,7 +60,7 @@ const Contact = () => {
                 <div>
                   <Input
                     type="email"
-                    placeholder="Email Anda"
+                    placeholder={t.contact.emailPlaceholder}
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
@@ -69,7 +71,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <Textarea
-                    placeholder="Pesan Anda"
+                    placeholder={t.contact.messagePlaceholder}
                     value={formData.message}
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
@@ -83,7 +85,7 @@ const Contact = () => {
                   className="w-full bg-primary hover:bg-primary/90 glow-effect transition-all duration-300 hover:scale-105"
                   size="lg"
                 >
-                  Kirim Pesan
+                  {t.contact.sendMessage}
                 </Button>
               </form>
             </div>
@@ -92,11 +94,10 @@ const Contact = () => {
             <div className="flex flex-col justify-center">
               <div className="p-8 rounded-lg bg-card border border-border/50 hover:border-primary/50 transition-all duration-300">
                 <h3 className="text-2xl font-semibold mb-6 text-foreground">
-                  Mari Terhubung!
+                  {t.contact.letsConnect}
                 </h3>
                 <p className="text-muted-foreground mb-8">
-                  Saya terbuka untuk peluang kolaborasi dan proyek menarik.
-                  Jangan ragu untuk menghubungi saya melalui form atau social media.
+                  {t.contact.connectDesc}
                 </p>
 
                 {/* Social Links */}

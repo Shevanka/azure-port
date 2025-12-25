@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,11 +19,11 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { label: "Home", href: "#hero" },
-    { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Projects", href: "#projects" },
-    { label: "Contact", href: "#contact" },
+    { label: t.nav.home, href: "#hero" },
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.skills, href: "#skills" },
+    { label: t.nav.projects, href: "#projects" },
+    { label: t.nav.contact, href: "#contact" },
   ];
 
   return (
@@ -39,18 +42,20 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <a
-                key={item.label}
+                key={item.href}
                 href={item.href}
                 className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
               >
                 {item.label}
               </a>
             ))}
+            <LanguageSwitcher />
             <ThemeToggle />
           </div>
 
           {/* Mobile Actions */}
           <div className="flex md:hidden items-center gap-2">
+            <LanguageSwitcher />
             <ThemeToggle />
             <Button
               variant="ghost"
@@ -68,7 +73,7 @@ const Navbar = () => {
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <a
-                  key={item.label}
+                  key={item.href}
                   href={item.href}
                   className="text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
                   onClick={() => setIsMobileMenuOpen(false)}
