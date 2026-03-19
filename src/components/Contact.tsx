@@ -1,35 +1,35 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
-import { useLanguage } from "@/hooks/useLanguage";
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Github, Linkedin, Mail, Twitter } from 'lucide-react'
+import { useState } from 'react'
+import { useToast } from '@/hooks/use-toast'
+import { useLanguage } from '@/hooks/useLanguage'
 
 const Contact = () => {
-  const { toast } = useToast();
-  const { t } = useLanguage();
+  const { toast } = useToast()
+  const { t } = useLanguage()
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+    name: '',
+    email: '',
+    message: '',
+  })
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
     toast({
       title: t.contact.successTitle,
       description: t.contact.successMessage,
-    });
-    setFormData({ name: "", email: "", message: "" });
-  };
+    })
+    setFormData({ name: '', email: '', message: '' })
+  }
 
   const socialLinks = [
-    { icon: Github, label: "GitHub", url: "#" },
-    { icon: Linkedin, label: "LinkedIn", url: "#" },
-    { icon: Twitter, label: "Twitter", url: "#" },
-    { icon: Mail, label: "Email", url: "mailto:hello@example.com" },
-  ];
+    { icon: Github, label: 'GitHub', url: 'https://github.com/Shevanka' },
+    { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/shevanka-kurniawan/' },
+    { icon: Twitter, label: 'Twitter', url: '#' },
+    { icon: Mail, label: 'Email', url: 'mailto:shevanka.kurniawan@gmail.com' },
+  ]
 
   return (
     <section id="contact" className="py-20">
@@ -38,7 +38,7 @@ const Contact = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">
             {t.contact.title} <span className="text-primary glow-text">{t.contact.subtitle}</span>
           </h2>
-          
+
           {/* Glowing Line */}
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-12 rounded-full glow-effect" />
 
@@ -50,9 +50,7 @@ const Contact = () => {
                   <Input
                     placeholder={t.contact.namePlaceholder}
                     value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="border-primary/30 focus:border-primary transition-colors"
                     required
                   />
@@ -62,9 +60,7 @@ const Contact = () => {
                     type="email"
                     placeholder={t.contact.emailPlaceholder}
                     value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="border-primary/30 focus:border-primary transition-colors"
                     required
                   />
@@ -73,9 +69,7 @@ const Contact = () => {
                   <Textarea
                     placeholder={t.contact.messagePlaceholder}
                     value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="min-h-[150px] border-primary/30 focus:border-primary transition-colors"
                     required
                   />
@@ -96,9 +90,7 @@ const Contact = () => {
                 <h3 className="text-2xl font-semibold mb-6 text-foreground">
                   {t.contact.letsConnect}
                 </h3>
-                <p className="text-muted-foreground mb-8">
-                  {t.contact.connectDesc}
-                </p>
+                <p className="text-muted-foreground mb-8">{t.contact.connectDesc}</p>
 
                 {/* Social Links */}
                 <div className="flex gap-4">
@@ -121,7 +113,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

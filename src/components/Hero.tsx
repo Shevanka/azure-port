@@ -1,12 +1,12 @@
-import { Button } from "@/components/ui/button";
-import { Download, Mail } from "lucide-react";
-import ParticleBackground from "@/components/ParticleBackground";
-import FloatingElements from "@/components/FloatingElements";
-import AnimatedGradient from "@/components/AnimatedGradient";
-import { useLanguage } from "@/hooks/useLanguage";
+import { Button } from '@/components/ui/button'
+import { Download, Mail } from 'lucide-react'
+import ParticleBackground from '@/components/ParticleBackground'
+import FloatingElements from '@/components/FloatingElements'
+import AnimatedGradient from '@/components/AnimatedGradient'
+import { useLanguage } from '@/hooks/useLanguage'
 
 const Hero = () => {
-  const { t } = useLanguage();
+  const { t } = useLanguage()
 
   return (
     <section
@@ -25,19 +25,21 @@ const Hero = () => {
             <div className="absolute inset-0 bg-primary/30 rounded-full blur-2xl animate-pulse-glow" />
             <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-primary/50 glow-effect transition-transform duration-500 group-hover:scale-110">
               <img
-                src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7"
+                src="/images/profile.webp"
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
             </div>
             {/* Rotating ring */}
-            <div className="absolute inset-0 w-40 h-40 border-2 border-primary/30 rounded-full animate-spin" style={{ animationDuration: "8s" }} />
+            <div
+              className="absolute inset-0 w-40 h-40 border-2 border-primary/30 rounded-full animate-spin"
+              style={{ animationDuration: '8s' }}
+            />
           </div>
 
           {/* Heading */}
           <h1 className="text-5xl md:text-7xl font-bold mb-4 text-foreground animate-slide-up">
-            {t.hero.greeting}{" "}
-            <span className="text-primary glow-text">{t.hero.role}</span>
+            {t.hero.greeting} <span className="text-primary glow-text">{t.hero.role}</span>
           </h1>
 
           {/* Subheading */}
@@ -50,7 +52,9 @@ const Hero = () => {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground animate-pulse-glow transition-all duration-300 hover:scale-105 relative overflow-hidden group"
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+              }
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
               <Mail className="mr-2 h-5 w-5" />
@@ -69,7 +73,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
