@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react'
+import { Github, Instagram, Linkedin, Mail, Twitter } from 'lucide-react'
 import { useState } from 'react'
 import { useToast } from '@/hooks/use-toast'
 import { useLanguage } from '@/hooks/useLanguage'
@@ -27,7 +27,7 @@ const Contact = () => {
   const socialLinks = [
     { icon: Github, label: 'GitHub', url: 'https://github.com/Shevanka' },
     { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/shevanka-kurniawan/' },
-    { icon: Twitter, label: 'Twitter', url: '#' },
+    { icon: Instagram, label: 'Instagram', url: 'https://www.instagram.com/shvnka_' },
     { icon: Mail, label: 'Email', url: 'mailto:shevanka.kurniawan@gmail.com' },
   ]
 

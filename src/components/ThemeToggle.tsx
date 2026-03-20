@@ -1,9 +1,9 @@
-import { Moon, Sun } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useTheme } from "@/hooks/useTheme";
+import { Moon, Sun } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { useTheme } from '@/hooks/useTheme'
 
 const ThemeToggle = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme()
 
   return (
     <Button
@@ -17,7 +17,7 @@ const ThemeToggle = () => {
       <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all duration-300 dark:rotate-0 dark:scale-100 text-primary" />
       <span className="sr-only">Toggle theme</span>
     </Button>
-  );
-};
+  )
+}
 
-export default ThemeToggle;
+export default ThemeToggle
