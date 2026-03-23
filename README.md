@@ -42,7 +42,7 @@ npm install
 npm run dev
 ```
 
-The app will typically be available at `http://localhost:5173`.
+The app will typically be available at `http://localhost:8080`.
 
 ## Available Scripts
 
