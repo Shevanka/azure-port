@@ -4,6 +4,7 @@ import ParticleBackground from '@/components/ParticleBackground'
 import FloatingElements from '@/components/FloatingElements'
 import AnimatedGradient from '@/components/AnimatedGradient'
 import { useLanguage } from '@/hooks/useLanguage'
+import { scrollToSection } from '@/lib/utils'
 
 const Hero = () => {
   const { t } = useLanguage()
@@ -11,7 +12,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 sm:pt-24 md:pt-0"
     >
       {/* Animated Background Layers */}
       <AnimatedGradient />
@@ -52,22 +53,27 @@ const Hero = () => {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground animate-pulse-glow transition-all duration-300 hover:scale-105 relative overflow-hidden group"
-              onClick={() =>
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-              }
+              onClick={() => scrollToSection('contact')}
             >
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
               <Mail className="mr-2 h-5 w-5" />
               {t.hero.contactMe}
             </Button>
             <Button
+              asChild
               size="lg"
               variant="outline"
               className="border-primary text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105 relative overflow-hidden group"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
-              <Download className="mr-2 h-5 w-5" />
-              {t.hero.downloadCV}
+              <a
+                href="https://drive.google.com/file/d/1eEInBfN23gYciI02wTHKRe_L2tVL_Ug6/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                <Download className="mr-2 h-5 w-5" />
+                {t.hero.downloadCV}
+              </a>
             </Button>
           </div>
         </div>

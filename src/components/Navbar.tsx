@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import ThemeToggle from '@/components/ThemeToggle'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { useLanguage } from '@/hooks/useLanguage'
+import { scrollToSection } from '@/lib/utils'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -12,7 +13,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setIsScrolled(window.scrollY > 0)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -25,6 +26,14 @@ const Navbar = () => {
     { label: t.nav.projects, href: '#projects' },
     { label: t.nav.contact, href: '#contact' },
   ]
+
+  const handleNavClick = (href: string) => {
+    const sectionId = href.replace(/^#/, '')
+
+    scrollToSection(sectionId)
+    window.history.replaceState(null, '', href)
+    setIsMobileMenuOpen(false)
+  }
 
   return (
     <nav
@@ -45,6 +54,10 @@ const Navbar = () => {
                 key={item.href}
                 href={item.href}
                 className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                onClick={(event) => {
+                  event.preventDefault()
+                  handleNavClick(item.href)
+                }}
               >
                 {item.label}
               </a>
@@ -76,7 +89,10 @@ const Navbar = () => {
                   key={item.href}
                   href={item.href}
                   className="text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(event) => {
+                    event.preventDefault()
+                    handleNavClick(item.href)
+                  }}
                 >
                   {item.label}
                 </a>

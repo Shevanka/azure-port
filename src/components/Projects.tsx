@@ -7,7 +7,7 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'Food delivery app',
+      title: 'Yumyard',
       description:
         t.skills.frontend === 'Frontend'
           ? 'Modern food delivery app platform with complete features and attractive UI'
@@ -19,57 +19,57 @@ const Projects = () => {
       githubUrl: 'https://github.com/Shevanka/final-project-android-dev',
     },
     {
-      title: 'Task Management App',
+      title: 'Si Kaya',
       description:
-        t.skills.frontend === 'Frontend'
-          ? 'Task management app with drag-and-drop interface'
-          : 'Aplikasi manajemen tugas dengan drag-and-drop interface',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40',
-      tags: ['TypeScript', 'Next.js', 'Prisma'],
-      liveUrl: '#',
-      githubUrl: '#',
+        t.skills.frontend === 'Frontend, Backend'
+          ? 'A modern offline-first Progressive Web App (PWA) for personal expense tracking.'
+          : 'Progressive Web App (PWA) modern yang mengutamakan akses offline untuk melacak pengeluaran pribadi',
+      image: 'https://unsplash.com/id/ilustrasi/kartu-kredit-celengan-koin-dan-smartphone-dengan-grafik-q4HBL4-GlZs',
+      tags: ['REST API', 'JavaScript', 'SQLite', 'PWA'],
+      liveUrl: 'https://github.com/Shevanka/si-kaya',
+      githubUrl: 'https://github.com/Shevanka/si-kaya',
     },
     {
-      title: 'Social Media Dashboard',
+      title: 'Ecommerce System',
       description:
-        t.skills.frontend === 'Frontend'
-          ? 'Analytics dashboard for managing multiple social media accounts'
-          : 'Dashboard analitik untuk mengelola multiple social media accounts',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f',
-      tags: ['React', 'Chart.js', 'Tailwind'],
-      liveUrl: '#',
-      githubUrl: '#',
+        t.skills.frontend === 'Frontend, Backend'
+          ? 'A web-based e-commerce and online sales information system built with Native PHP'
+          : 'Sistem informasi e-commerce dan penjualan online berbasis web yang dibangun menggunakan Native PHP.',
+      image: 'https://unsplash.com/id/foto/keranjang-dengan-target-target-target-di-dalamnya-dan--_jFGWIE6fg',
+      tags: ['PHP', 'CSS', 'MySQL'],
+      liveUrl: 'https://github.com/Shevanka/php-ecommerce-system',
+      githubUrl: 'https://github.com/Shevanka/php-ecommerce-system',
     },
     {
-      title: 'Weather Forecast App',
+      title: 'LUA Engine',
       description:
-        t.skills.frontend === 'Frontend'
-          ? 'Weather forecast app with interactive data visualization'
-          : 'Aplikasi prakiraan cuaca dengan visualisasi data interaktif',
-      image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b',
-      tags: ['Vue.js', 'API Integration', 'CSS'],
-      liveUrl: '#',
-      githubUrl: '#',
+        t.skills.frontend === 'Backend'
+          ? 'This project provides an embedded Lua interpreter, allowing exposure of custom C functions to Lua, a foundation for game engine scripting.'
+          : 'Proyek ini menyediakan interpreter Lua tersemat yang memungkinkan fungsi C kustom diekspos ke Lua, sebagai landasan bagi pembuatan skrip pada mesin game.',
+      image: 'https://cintaprogramming.com/2019/08/03/mengenal-bahasa-pemrograman-lua/',
+      tags: ['Lua', 'C', 'Game Engine'],
+      liveUrl: 'https://github.com/Shevanka/lua-engine',
+      githubUrl: 'https://github.com/Shevanka/lua-engine',
     },
     {
-      title: 'Real Estate Website',
+      title: 'CLI Games Based on C',
       description:
-        t.skills.frontend === 'Frontend'
-          ? 'Property website with advanced search and virtual tour'
-          : 'Website properti dengan pencarian advanced dan virtual tour',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa',
-      tags: ['Next.js', 'Strapi', 'MapBox'],
-      liveUrl: '#',
-      githubUrl: '#',
+        t.skills.frontend === 'Backend'
+          ? 'A collection of simple terminal-based games written in C, designed to demonstrate fundamental programming concepts.'
+          : 'Kumpulan permainan sederhana berbasis terminal yang ditulis dalam bahasa C, dirancang untuk mendemonstrasikan konsep-konsep dasar pemrograman.',
+      image: 'https://unsplash.com/id/foto/teks-KNZHyTpre18',
+      tags: ['C', 'Terminal', 'Game Development'],
+      liveUrl: 'https://github.com/Shevanka/c-mini-games',
+      githubUrl: 'https://github.com/Shevanka/c-mini-games',
     },
     {
-      title: 'Fitness Tracker',
+      title: 'Systems Administrator',
       description:
-        t.skills.frontend === 'Frontend'
-          ? 'Workout and nutrition tracking app with AI recommendations'
-          : 'Aplikasi tracking workout dan nutrisi dengan AI recommendations',
+        t.skills.frontend === 'Unix/Linux, Windows'
+          ? 'A fully functional, virtualized enterprise IT environment built via VirtualBox.'
+          : 'Lingkungan TI perusahaan tervirtualisasi yang berfungsi penuh, dibangun menggunakan VirtualBox.',
       image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438',
-      tags: ['React Native', 'Firebase', 'AI'],
+      tags: ['VirtualBox', 'Linux', 'Windows'],
       liveUrl: '#',
       githubUrl: '#',
     },

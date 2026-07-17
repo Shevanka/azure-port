@@ -43,7 +43,12 @@ describe('Hero', () => {
       )
     ).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /contact me/i })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: /download cv/i })).toBeInTheDocument()
+    const downloadLink = screen.getByRole('link', { name: /download cv/i })
+    expect(downloadLink).toBeInTheDocument()
+    expect(downloadLink).toHaveAttribute(
+      'href',
+      'https://drive.google.com/file/d/1eEInBfN23gYciI02wTHKRe_L2tVL_Ug6/view?usp=sharing'
+    )
     expect(screen.getByTestId('animated-gradient')).toBeInTheDocument()
     expect(screen.getByTestId('particle-background')).toBeInTheDocument()
     expect(screen.getByTestId('floating-elements')).toBeInTheDocument()
@@ -58,16 +63,33 @@ describe('Hero', () => {
 
   it('scrolls to the "contact" section when clicking "Contact Me"', async () => {
     const contactSection = document.createElement('div')
-    const scrollIntoView = vi.fn()
     contactSection.id = 'contact'
-    contactSection.scrollIntoView = scrollIntoView
+    contactSection.getBoundingClientRect = vi.fn(() => ({
+      top: 600,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      width: 0,
+      height: 0,
+      x: 0,
+      y: 600,
+      toJSON: () => ({}),
+    }))
     document.body.appendChild(contactSection)
+
+    Object.defineProperty(window, 'scrollY', {
+      value: 100,
+      configurable: true,
+      writable: true,
+    })
+
+    const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => undefined)
 
     const user = userEvent.setup()
     render(<Hero />)
     await user.click(screen.getByRole('button', { name: /contact me/i }))
 
-    expect(scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth' })
+    expect(scrollTo).toHaveBeenCalledWith({ top: 636, behavior: 'smooth' })
     contactSection.remove()
   })
 
